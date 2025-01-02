@@ -1,0 +1,17 @@
+#mysql config
+MysqlConfig :
+  Name         : root
+  Password     : sx221410
+  Ip           : 192.168.220.128
+  Port         : 3306
+  DatabaseName : book_ai_recommendation
+
+#redis config
+RedisConfig :
+  Network  : tcp
+  Address  : 192.168.220.128:6379
+  Num      : 0
+  RdbPassword :
+
+#JWT secret key
+JwtKey : tyhngebvfpliyergfgdf
