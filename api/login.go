@@ -16,7 +16,7 @@ func Login(ctx *gin.Context) {
 
 	if !model.Login(user.Name, utils.Md5(user.Password)) {
 		ctx.JSON(http.StatusOK, model.HttpStatus{
-			StatusCode: 200,
+			StatusCode: 400,
 			StatusMsg:  "用户名或密码错误",
 		})
 		return

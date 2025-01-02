@@ -66,9 +66,8 @@ func Login(username, password string) bool {
 
 // Register 用户注册
 func Register(username, password, email string) int64 {
-
 	if FindUser(username) == 0 {
-		db.Db.Mysql.Model(&User{}).Create(map[string]interface{}{"name": username, "password": utils.Md5(password), "email": email})
+		db.Db.Mysql.Model(&User{}).Create(map[string]interface{}{"name": username, "password": utils.Md5(password), "email": email, "role": 1})
 		fmt.Println("用户创建成功")
 		return 0
 	}
