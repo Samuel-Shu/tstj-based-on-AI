@@ -9,8 +9,8 @@ import (
 
 type User struct {
 	gorm.Model
-	ID       int64  `json:"id"`   // 用户id
-	Name     string `json:"name"` // 用户名称
+	ID       int64  `json:"id"`       // 用户id
+	Name     string `json:"username"` // 用户名称
 	Password string `json:"password"`
 	Role     int64  `json:"role"`  // 权限：0表示管理员，1表示普通用户
 	Email    string `json:"email"` // 邮箱

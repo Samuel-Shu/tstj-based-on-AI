@@ -24,7 +24,9 @@ func Login(ctx *gin.Context) {
 
 	userInfo := model.FindUserWithName(user.Name)
 	ctx.JSON(http.StatusOK, gin.H{
-		"name": userInfo.Name,
-		"role": userInfo.Role,
+		"status_code": 200,
+		"status_msg":  "登录成功",
+		"name":        userInfo.Name,
+		"role":        userInfo.Role,
 	})
 }

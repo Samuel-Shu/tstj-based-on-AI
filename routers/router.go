@@ -13,7 +13,8 @@ import (
 
 func InitRouter() {
 	r := gin.Default()
-
+	// 允许跨域请求
+	r.Use(middleware.Cors())
 	//定义无需鉴权路由组,并初始化配置信息，写进*gin.context里
 	NoAuthAPI := r.Group("/api", db.InitDb)
 	//定义需鉴权路由组
@@ -43,6 +44,8 @@ func InitRouter() {
 	NoAuthAPI.POST("/login", api.Login)
 	// 注册接口
 	NoAuthAPI.POST("/register", api.Register)
+	// 获取验证码接口
+	NoAuthAPI.POST("/register/vlcode", api.GetVerificationCodeHandler)
 
 	err := r.Run(":8300")
 	if err != nil {

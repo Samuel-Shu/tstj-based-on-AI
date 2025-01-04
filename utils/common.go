@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"math/rand"
 	"time"
 )
 
@@ -40,4 +41,9 @@ func CommentTime(date string) string {
 	dateInt := TransformDateToUnix(date)
 	timeTemplate := "01-02"
 	return time.Unix(dateInt, 0).Format(timeTemplate)
+}
+
+// CreateCaptcha 生成六位随机数验证码
+func CreateCaptcha() string {
+	return fmt.Sprintf("%06v", rand.New(rand.NewSource(time.Now().UnixNano())).Int31n(1000000))
 }
